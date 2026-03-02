@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import fileUpload from "express-fileupload";
+import { createTables } from "./utils/create_tables.js";
 dotenv.config();
 
 const app = express();
@@ -21,5 +22,7 @@ app.use(fileUpload({
     tempFileDir: "./uploads",
     useTempFiles: true,
 }));
+
+createTables();
 
 export default app;
