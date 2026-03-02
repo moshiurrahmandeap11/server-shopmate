@@ -3,8 +3,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import fileUpload from "express-fileupload";
+import { errorMiddleware } from "./middleware/errorHanding.js";
 import { createTables } from "./utils/create_tables.js";
 dotenv.config();
+
+import authRouter from "./routes/usersRoute/authRoutes.js";
 
 const app = express();
 
@@ -23,6 +26,11 @@ app.use(fileUpload({
     useTempFiles: true,
 }));
 
+
+app.use("/api/v1/auth", authRouter);
+
 createTables();
+
+app.use(errorMiddleware)
 
 export default app;
