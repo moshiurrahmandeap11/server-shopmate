@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { deleteUser, getAllUsers } from "../../controllers/adminController.js";
+import { dashboardStats, deleteUser, getAllUsers } from "../../controllers/adminController.js";
 import { authorizedRoles, isAuthenticated } from "../../middleware/authMiddleware.js";
 
 const router = Router();
