@@ -7,6 +7,7 @@ import { errorMiddleware } from "./middleware/errorHanding.js";
 import { createTables } from "./utils/create_tables.js";
 dotenv.config();
 
+import adminRouter from "./routes/adminRoute/adminRoutes.js";
 import productRouter from "./routes/productsRoute/productRoutes.js";
 import authRouter from "./routes/usersRoute/authRoutes.js";
 
@@ -30,6 +31,7 @@ app.use(fileUpload({
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/product", productRouter);
+app.use("/api/v1/admin", adminRouter);
 
 createTables();
 
